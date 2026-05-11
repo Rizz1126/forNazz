@@ -110,7 +110,7 @@ function moveButton() {
         attemptCount++;
         
         if (attemptCount === maxAttempts) {
-            mysteryButton.innerText = "Okay, I give up! Click me! ❤️";
+            mysteryButton.innerText = "Okay, I give up! Click me! 🤭";
             mysteryButton.style.background = "#ffb6c1";
             mysteryButton.style.color = "white";
         }
@@ -233,7 +233,7 @@ function typewriterEffect(text, element) {
 
 // Background Visuals
 function createBackgroundParticles() {
-    const types = ['❤️', '✨', '⭐', '🌸'];
+    const types = ['💙', '✨', '⭐', '🌸'];
     for (let i = 0; i < 30; i++) {
         createParticle(types[Math.floor(Math.random() * types.length)]);
     }
@@ -275,7 +275,7 @@ function createExplosion() {
     for (let i = 0; i < 50; i++) {
         const confetto = document.createElement('div');
         confetto.className = 'particle';
-        confetto.innerText = ['💖', '🎂', '🎈', '✨', '🎉'][Math.floor(Math.random() * 5)];
+        confetto.innerText = ['🫶', '🎂', '🎈', '✨', '🎉'][Math.floor(Math.random() * 5)];
         confetto.style.left = '50vw';
         confetto.style.top = '50vh';
         confetto.style.fontSize = '24px';
