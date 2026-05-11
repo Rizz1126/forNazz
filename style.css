@@ -1,0 +1,306 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #FFD1DC 0%, #E6E6FA 50%, #FFFDD0 100%);
+    --primary-pink: #FFB6C1;
+    --primary-lavender: #D8BFD8;
+    --text-color: #5D5D5D;
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-gradient);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--text-color);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9);
+}
+
+.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}
+
+/* Intro Section */
+.content {
+    text-align: center;
+    padding: 2rem;
+    z-index: 10;
+}
+
+.mysterious-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: #4a4a4a;
+}
+
+.mysterious-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 3rem;
+}
+
+.game-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    max-width: 600px;
+}
+
+#mystery-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-family: 'Outfit', sans-serif;
+    background: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+#mystery-button:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+#teaser-message {
+    position: absolute;
+    width: 100%;
+    bottom: -50px;
+    left: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ff69b4;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+    pointer-events: none;
+}
+
+/* Reveal Section */
+.birthday-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    text-align: center;
+    color: #ff69b4;
+    line-height: 1.2;
+    animation: float 3s ease-in-out infinite;
+}
+
+.birthday-title .name {
+    font-size: 2.5rem;
+    display: block;
+    color: #9370db;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Wishes Section */
+#wish-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wish-item {
+    position: absolute;
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-align: center;
+    padding: 2rem;
+    max-width: 80%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+/* Final Section */
+.final-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.message-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+}
+
+#final-message-text {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+.photo-section {
+    margin-top: 2rem;
+}
+
+.frame-container {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin: 0 auto;
+}
+
+.birthday-frame {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+}
+
+.user-photo {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: 8px solid white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.user-photo:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.photo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* Particles & Confetti */
+#particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Audio Controls */
+.audio-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#music-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+#music-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Restart Button */
+#restart-btn {
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    background: #ffb6c1;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
+    transition: all 0.3s;
+}
+
+#restart-btn:hover {
+    background: #ff69b4;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .mysterious-title { font-size: 1.8rem; }
+    .birthday-title { font-size: 2.5rem; }
+    .birthday-title .name { font-size: 1.8rem; }
+    .wish-item { font-size: 1.2rem; }
+    #final-message-text { font-size: 1.2rem; }
+    .frame-container { width: 280px; height: 280px; }
+}

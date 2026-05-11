@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Floating Particles Container -->
+        <div id="particle-container"></div>
+
+        <!-- Section 1: Secret Intro -->
+        <section id="intro" class="active">
+            <div class="content">
+                <h1 class="mysterious-title">Something is waiting for you...</h1>
+                <p class="mysterious-subtitle">Are you ready to find out what it is?</p>
+                <div class="game-container">
+                    <button id="mystery-button">Click Me</button>
+                    <div id="teaser-message"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Surprise Reveal -->
+        <section id="reveal" class="hidden">
+            <div class="reveal-content">
+                <h1 class="birthday-title">HAPPY BIRTHDAY<br><span class="name">Aracely Nazareth Moyeda Garza</span>
+                </h1>
+                <div class="confetti-container"></div>
+            </div>
+        </section>
+
+        <!-- Section 3: Birthday Wishes -->
+        <section id="wishes" class="hidden">
+            <div id="wish-container"></div>
+        </section>
+
+        <!-- Section 4: Final Message -->
+        <section id="final" class="hidden">
+            <div class="final-content">
+                <div class="message-card">
+                    <p id="final-message-text"></p>
+                </div>
+                <div class="photo-section">
+                        <img src="WhatsApp Image 2026-05-11 at 10.01.01 AM.jpeg" alt="Aracely" class="user-photo">
+                </div>
+                <button id="restart-btn">See it again? 🤩</button>
+            </div>
+        </section>
+
+        <!-- Audio Controls -->
+        <div class="audio-controls">
+            <button id="music-toggle" title="Toggle Music">
+                <span class="icon">🎵</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
