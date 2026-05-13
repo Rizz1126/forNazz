@@ -206,6 +206,14 @@ function showWish(text) {
     });
 }
 
+const projectImages = [
+    "WhatsApp Image 2026-05-11 at 10.01.01 AM.jpeg",
+    "WhatsApp Image 2026-05-13 at 12.43.07 PM.jpeg",
+    "WhatsApp Image 2026-05-13 at 12.45.54 PM.jpeg",
+    "WhatsApp Image 2026-05-13 at 12.46.19 PM.jpeg",
+    "WhatsApp Image 2026-05-13 at 12.46.36 PM.jpeg"
+];
+
 // 4. Final Emotional Ending
 function showFinalEnding() {
     wishesSection.classList.remove('active');
@@ -214,8 +222,53 @@ function showFinalEnding() {
     setTimeout(() => {
         finalSection.classList.remove('hidden');
         finalSection.classList.add('active');
+        createHangingPhotos();
         typewriterEffect(finalMessage, finalMessageText);
     }, 1000);
+}
+
+function createHangingPhotos() {
+    const container = document.getElementById('hanging-photos-container');
+    container.innerHTML = ''; // Clear previous if any
+    
+    // Positions to avoid the center where the text is
+    const positions = [
+        { left: '5%', ropeBase: 150 },
+        { left: '25%', ropeBase: 280 },
+        { right: '5%', ropeBase: 200 },
+        { right: '25%', ropeBase: 120 },
+        { left: '45%', ropeBase: 80 } // Center-top, short rope to not cover text
+    ];
+    
+    projectImages.forEach((src, index) => {
+        const hangingPhoto = document.createElement('div');
+        hangingPhoto.className = 'hanging-photo';
+        
+        const pos = positions[index % positions.length];
+        
+        // Apply position
+        if (pos.left) hangingPhoto.style.left = pos.left;
+        if (pos.right) hangingPhoto.style.right = pos.right;
+        
+        // Randomize rope length slightly and rotation
+        const ropeHeight = pos.ropeBase + Math.floor(Math.random() * 50);
+        const rotation = (Math.random() * 14 - 7).toFixed(1);
+        const delay = index * 300; // Staggered entry
+        
+        hangingPhoto.innerHTML = `
+            <div class="rope" style="height: ${ropeHeight}px"></div>
+            <div class="photo-frame" style="--rotation: ${rotation}deg">
+                <img src="${src}" alt="Memory">
+            </div>
+        `;
+        
+        container.appendChild(hangingPhoto);
+        
+        // Trigger animation
+        setTimeout(() => {
+            hangingPhoto.classList.add('show');
+        }, delay);
+    });
 }
 
 function typewriterEffect(text, element) {
